@@ -1,7 +1,12 @@
-<h1>Hello {{name}}</h1>
-<div *ngFor = 'let lst of appList'>
+<div *ngIf='appStatus'>{{appTitle}} to Tutorials point.</div>
+
+<div>
+    ProductId : productModel.ProductID
+    <button (click)="LoadProducts()">Load Products</button>
+</div>
+<div *ngFor="let list of productModel">
     <ul>
-        <li>{{lst.ID}}</li>
-        <img [src] = 'lst.url'>
+        <li>{{list.ProductID}}</li>
+        <li>{{list.ProductName}}</li>
     </ul>
 </div>

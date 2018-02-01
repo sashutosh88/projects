@@ -5,30 +5,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 var core_1 = require("@angular/core");
+var products_service_1 = require("./products.service");
+require("rxjs/add/operator/map");
 var AppComponent = (function () {
-    function AppComponent() {
-        this.name = 'Welcome';
-        this.appList = [{
-                'ID': '1',
-                'url': 'app/Images/1.jpg'
-            },
-            {
-                'ID': '2',
-                'url': 'app/Images/2.jpg'
-            },
-            {
-                'ID': '3',
-                'url': 'app/Images/3.jpg'
-            }];
+    function AppComponent(_product) {
+        this._product = _product;
+        this.productModel = new Array();
+        this.appTitle = 'Welcome';
     }
+    AppComponent.prototype.ngOnInit = function () {
+        localStorage.setItem('data', 'Me Data');
+    };
+    AppComponent.prototype.LoadProducts = function () {
+        var _this = this;
+        this._product.getproducts()
+            .subscribe(function (res) {
+            _this.productModel = res.json();
+        });
+        alert(localStorage.getItem('data'));
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
-        selector: 'my-app',
+        selector: 'my-first-app',
         templateUrl: 'app/app.component.html',
-    })
+        providers: [products_service_1.ProductService]
+    }),
+    __metadata("design:paramtypes", [products_service_1.ProductService])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map
