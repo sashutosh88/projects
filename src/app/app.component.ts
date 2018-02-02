@@ -30,6 +30,6 @@ export class AppComponent {
       }
       );
 
-    alert(localStorage.getItem('data'));
+    // alert(localStorage.getItem('data'));
   }
 }

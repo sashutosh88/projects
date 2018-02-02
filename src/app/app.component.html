@@ -1,12 +1,23 @@
-<div *ngIf='appStatus'>{{appTitle}} to Tutorials point.</div>
 
 <div>
-    ProductId : productModel.ProductID
     <button (click)="LoadProducts()">Load Products</button>
 </div>
-<div *ngFor="let list of productModel">
-    <ul>
-        <li>{{list.ProductID}}</li>
-        <li>{{list.ProductName}}</li>
-    </ul>
-</div>
+<table id="tblprod">
+    <thead>
+        <tr><th>ProductID</th>
+        <th>ProductName</th>
+        </tr>
+    </thead>
+<tbody *ngFor="let list of productModel">
+        <tr>
+            <td>{{list.ProductID}}</td>
+            <td>{{list.ProductName}}</td>
+            </tr>
+</tbody>
+</table>
+
+ <ul>
+      <li><a [routerLink] = "['/Product']">Product</a></li>
+      <li><a [routerLink] = "['/Inventory']">Inventory</a></li>
+   </ul>
+   <router-outlet></router-outlet>'

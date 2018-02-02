@@ -26,7 +26,7 @@ var AppComponent = (function () {
             .subscribe(function (res) {
             _this.productModel = res.json();
         });
-        alert(localStorage.getItem('data'));
+        // alert(localStorage.getItem('data'));
     };
     return AppComponent;
 }());

@@ -8,8 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var app_component_1 = require("./app.component");
+var product_component_1 = require("./product.component");
+var Inventory_component_1 = require("./Inventory.component");
+var router_1 = require("@angular/router");
 var http_1 = require("@angular/http");
 var products_service_1 = require("./products.service");
+var appRoutes = [
+    { path: 'Product', component: product_component_1.Appproduct },
+    { path: 'Inventory', component: Inventory_component_1.AppInventory },
+];
 var AppModule = (function () {
     function AppModule() {
     }
@@ -17,8 +24,8 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, http_1.HttpModule],
-        declarations: [app_component_1.AppComponent],
+        imports: [platform_browser_1.BrowserModule, router_1.RouterModule.forRoot(appRoutes), http_1.HttpModule],
+        declarations: [app_component_1.AppComponent, product_component_1.Appproduct, Inventory_component_1.AppInventory],
         bootstrap: [app_component_1.AppComponent],
         providers: [products_service_1.ProductService]
     })
